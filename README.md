@@ -5,6 +5,7 @@
 ## Team members
 
 Aleenah Alam, Michael Carr, Lihi Shamriz
+
 TOADD picture of the team
 
 ## App description
