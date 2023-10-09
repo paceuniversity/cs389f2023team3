@@ -13,6 +13,10 @@ TOADD picture of the team
 ## Idea Proposal
 [Idea Proposal](https://docs.google.com/document/d/1w4pOJ4kk3L7TMUzPG-RPLnHXdHhjVQE3/edit?usp=sharing&ouid=109506195485237631608&rtpof=true&sd=true)
 
+## Requirements
+[Requirements Discovery](https://docs.google.com/document/d/1HvSqUlBl4PVhl_7V7VmmforlNTJtnwprEIgClhXtnIs/edit?usp=sharing)
+[Product Backlog](https://docs.google.com/spreadsheets/d/1VRKwO_muL_wV7BSSMsFngHxUyVN0W-tkdD6oL5ySl5Y/edit?usp=sharing)
+
 ## Calendar
 [Calendar](https://calendar.google.com/calendar/u/0?cid=aXZoMmU3NjhzMjRkdGlxZWYwcXZvbzhxcjBAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ)
 
