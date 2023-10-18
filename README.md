@@ -50,6 +50,8 @@ TOADD picture of the team
 
 ## Tools & APIs
 
+* Spotify API
+
 ## Final delivery
 
 * [Final presentation]()
