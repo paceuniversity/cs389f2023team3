@@ -2,6 +2,8 @@
 
 ## App name
 
+🎵 TuneTalk 🔈
+
 ## Team members
 
 Aleenah Alam, Michael Carr, Lihi Shamriz
@@ -9,6 +11,8 @@ Aleenah Alam, Michael Carr, Lihi Shamriz
 TOADD picture of the team
 
 ## App description
+
+TuneTalk is a music-focused app that brings together music enthusiasts of various kinds. It caters to musicians, band fans, and those who simply love listening to music, providing a platform for them to connect, collaborate, and engage in lively discussions. Whether you're looking to find fellow musicians, analyze new music releases, or connect with niche fan communities, TuneTalk is the ideal hub for all things music.
 
 ## Idea Proposal
 [Idea Proposal](https://docs.google.com/document/d/1w4pOJ4kk3L7TMUzPG-RPLnHXdHhjVQE3/edit?usp=sharing&ouid=109506195485237631608&rtpof=true&sd=true)
