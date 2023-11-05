@@ -1,7 +1,7 @@
 import React, {useState} from "react";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
-import firebase from "firebase/app"
+import { firebase } from "firebase/app"
 
 
 export const Register = (props) => { 
@@ -13,7 +13,7 @@ export const Register = (props) => {
 
     const signUp = (e) => { 
         e.preventDefault();
-        createUserWithEmailAndPassword(auth, email, pass)
+        createUserWithEmailAndPassword(exauth, email, pass)
         .then((userCredential) => {
             console.log(userCredential);
         })
@@ -56,5 +56,3 @@ export const Register = (props) => {
         </>
     )
 }
-
-export default Register;

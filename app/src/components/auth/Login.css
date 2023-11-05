@@ -1,0 +1,23 @@
+button, 
+[type = 'submit'] { 
+  border: none;
+  background-color: lightpink;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+button[type='submit']:hover {
+    background-color: violet;
+    transition: 0.5s;
+  }
+  
+
+.link-btn { 
+    background: none;
+    color: lightskyblue;
+    text-decoration: underline;
+  }
+  
+.link-btn:hover {
+  color: darkblue; 
+}

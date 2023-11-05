@@ -34,12 +34,22 @@ input {
   border-radius: 10px
 }
 
-button { 
+button, 
+[type = 'submit'] { 
   border: none;
   background-color: orange;
   padding: 20px;
   border-radius: 10px;
 }
+
+button [type = 'submit']:hover
+ { 
+  background-color: antiquewhite;
+  transition: 0.5s;
+}
+
+
+
 
 .link-btn { 
   background: none;
@@ -50,6 +60,12 @@ button {
 .link-btn:hover{ 
   color: darkblue;
 }
+log-btn{ 
+  border: none;
+  background-color: orange;
+  padding: 20px;
+  border-radius: 10px;
+}
 
 .posts {
   text-align: left;
@@ -57,3 +73,4 @@ button {
   flex-wrap: wrap;
   gap: 18px;
 }
+

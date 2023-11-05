@@ -1,8 +1,9 @@
 import "./Home.css";
+//import "../components/auth/Login.css";
 import { Login } from '../components/auth/Login';
 import { Register } from '../components/auth/Register';
+import AuthDetails from '../components/auth/AuthDetails';
 import { Post } from '../pages/Post';
-
 import React, { useState } from "react";
 
 function Home() {
@@ -23,11 +24,13 @@ function Home() {
     
       { 
        currentForm === "login" ? <Login onFormSwitch={toggleForm} /> : <Register onFormSwitch={toggleForm}  /> 
-      }
-     
-    </div>}
 
-    {isAuthenticated && <div className="posts">
+       
+      }
+   AuthDetails />
+   </div>
+
+  {isAuthenticated && <div className="posts">
       {postsArray.map((data, index) => (
         <Post key={index} postData={data} />
       ))}

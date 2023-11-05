@@ -1,7 +1,8 @@
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import React, {useState} from "react";
-import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
-import firebase from "firebase/app"
+import  { firebase }  from "firebase/compat/app"
+import "./Login.css";
 export const Login = (props) => { 
 
 
@@ -42,7 +43,7 @@ export const Login = (props) => {
                 id="password" 
                 name="password"
                 onChange= {(e) => setPassword(e.target.value)}/>
-            <button type="submit"> Log In</button>
+            <button  type="submit"> Log In</button>
        </form>
        <button className="link-btn" onClick={() => props.onFormSwitch('register')}> If you don't have an account register here! </button>
     
@@ -51,5 +52,3 @@ export const Login = (props) => {
 
     )
 }
-
-export default Login;

@@ -27,8 +27,8 @@ const About = () => {
       <p> <strong>Aleenah Alam</strong> - Programmer <br></br> Aleenah is a Junior at Pace University pursuing 
       her BS in computer science. In her free time, she enjoys reading, photography, and spending time outdoors.</p> 
 
-      <img class="img" alt="photo of michael" src={bonnie} />
-      <p> <strong>Michael Carr</strong> - Programmer </p>
+      <img alt="photo of michael" src={bonnie} />
+      <p> <strong>Michael Carr</strong> - Hello I am Michael Carr and I'm a Junior at Pace University! I am pursing my B.S. in computer science. Some hobbies of mine inclue playing the bass guitar, playing video games, and listening to music. </p>
 
       <img class="img" alt="photo of lihi" src={lihi} />
       <p> <strong>Lihi Shamriz</strong> - Programmer 
