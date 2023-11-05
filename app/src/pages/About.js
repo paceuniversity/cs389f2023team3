@@ -22,14 +22,14 @@ const About = () => {
       <br></br>
 
       <h2>Meet the Team</h2>
-      <img alt="photo of aleenah" src={dance} />
+      <img class="img" alt="photo of aleenah" src={dance} />
       <p> <strong>Aleenah Alam</strong> - Programmer <br></br> Aleenah is a Junior at Pace University pursuing 
       her BS in computer science. In her free time, she enjoys reading, photography, and spending time outdoors.</p> 
 
-      <img alt="photo of michael" src={bonnie} />
+      <img class="img" alt="photo of michael" src={bonnie} />
       <p> <strong>Michael Carr</strong> - Programmer </p>
 
-      <img alt="photo of lihi" src={Aboutpic} />
+      <img class="img" alt="photo of lihi" src={Aboutpic} />
       <p> <strong>Lihi Shamriz</strong> - Programmer </p>
       <br></br>
 

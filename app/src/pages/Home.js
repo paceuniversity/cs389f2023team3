@@ -1,11 +1,13 @@
 import "./Home.css";
 import { Login } from '../components/auth/Login';
 import { Register } from '../components/auth/Register';
+import { Post } from '../pages/Post';
 
 import React, { useState } from "react";
 
 function Home() {
   const [currentForm, setCurrentForm] = useState('login');
+  const isAuthenticated = true;
 
   const toggleForm = (formName) => { 
     setCurrentForm(formName);
@@ -14,7 +16,7 @@ function Home() {
   return (
   <div className="home-page">
    
-    <div className="center">
+    {!isAuthenticated && <div className="login center">
       <h1>Welcome to TuneTalk!</h1>
 
       Login or Register below!
@@ -23,7 +25,11 @@ function Home() {
        currentForm === "login" ? <Login onFormSwitch={toggleForm} /> : <Register onFormSwitch={toggleForm}  /> 
       }
      
-    </div>
+    </div>}
+
+    {isAuthenticated && <div className="posts">
+      <Post></Post>
+    </div>}
   </div>
   );
 }
