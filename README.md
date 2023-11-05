@@ -54,7 +54,7 @@ TuneTalk is a music-focused app that brings together music enthusiasts of variou
 
 ## Tools & APIs
 
-<img src="https://github.com/paceuniversity/cs389f2023team3/assets/28511638/5d7f3e6a-4e1f-4f87-b638-44ad0b27e27f" width="150" height="100">
+* Spotify API
 
 ## Final delivery
 
