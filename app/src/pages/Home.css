@@ -7,15 +7,15 @@
   border: 1px solid #ddd;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
 
+.login {
   text-align: center;
   display: flex; 
   min-height: 100vh;
   align-items: center;
   justify-content: center;
 }
-
-
 
 .auth-form-container, .login-form, .register-form {
 display: flex; 
@@ -49,4 +49,8 @@ button {
 
 .link-btn:hover{ 
   color: darkblue;
+}
+
+.posts {
+  text-align: left;
 }
