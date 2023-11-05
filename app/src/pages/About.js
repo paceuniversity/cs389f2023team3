@@ -1,8 +1,8 @@
 import React from 'react';
 import './About.css';
-import dance from './dance.gif';
-import bonnie from './bonnie.png';
-import lihi from './lihi.png';
+import dance from '../resources/dance.gif';
+import bonnie from '../resources/bonnie.png';
+import lihi from '../resources/lihi.png';
 
 const About = () => {
   return (
