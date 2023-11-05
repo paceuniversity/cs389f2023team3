@@ -7,15 +7,15 @@
   border: 1px solid #ddd;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
 
-.login {
   text-align: center;
   display: flex; 
   min-height: 100vh;
   align-items: center;
   justify-content: center;
 }
+
+
 
 .auth-form-container, .login-form, .register-form {
 display: flex; 
@@ -60,17 +60,10 @@ button [type = 'submit']:hover
 .link-btn:hover{ 
   color: darkblue;
 }
+
 log-btn{ 
   border: none;
   background-color: orange;
   padding: 20px;
   border-radius: 10px;
 }
-
-.posts {
-  text-align: left;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 18px;
-}
-
