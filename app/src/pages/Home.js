@@ -1,6 +1,8 @@
 import "./Home.css";
+//import "../components/auth/Login.css";
 import { Login } from '../components/auth/Login';
 import { Register } from '../components/auth/Register';
+import AuthDetails from '../components/auth/AuthDetails';
 
 import React, { useState } from "react";
 
@@ -21,8 +23,10 @@ function Home() {
     
       { 
        currentForm === "login" ? <Login onFormSwitch={toggleForm} /> : <Register onFormSwitch={toggleForm}  /> 
+
+       
       }
-     
+      < AuthDetails />
     </div>
   </div>
   );

@@ -27,7 +27,7 @@ const About = () => {
       her BS in computer science. In her free time, she enjoys reading, photography, and spending time outdoors.</p> 
 
       <img alt="photo of michael" src={bonnie} />
-      <p> <strong>Michael Carr</strong> - Programmer </p>
+      <p> <strong>Michael Carr</strong> - Hello I am Michael Carr and I'm a Junior at Pace University! I am pursing my B.S. in computer science. Some hobbies of mine inclue playing the bass guitar, playing video games, and listening to music. </p>
 
       <img alt="photo of lihi" src={Aboutpic} />
       <p> <strong>Lihi Shamriz</strong> - Programmer </p>
