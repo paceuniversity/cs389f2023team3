@@ -53,4 +53,7 @@ button {
 
 .posts {
   text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
 }
