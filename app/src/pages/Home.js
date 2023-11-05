@@ -1,8 +1,7 @@
 import "./Home.css";
-//import "../components/auth/Login.css";
 import { Login } from '../components/auth/Login';
 import { Register } from '../components/auth/Register';
-import AuthDetails from '../components/auth/AuthDetails';
+import { AuthDetails } from '../components/auth/AuthDetails.jsx';
 import { Post } from '../pages/Post';
 import React, { useState } from "react";
 
@@ -15,7 +14,7 @@ function Home() {
   }
 
   return (
-  <div className="home-page">
+    <div className="home-page">
    
     {!isAuthenticated && <div className="login center">
       <h1>Welcome to TuneTalk!</h1>
@@ -24,13 +23,11 @@ function Home() {
     
       { 
        currentForm === "login" ? <Login onFormSwitch={toggleForm} /> : <Register onFormSwitch={toggleForm}  /> 
-
-       
       }
-   AuthDetails />
-   </div>
+     
+    </div>}
 
-  {isAuthenticated && <div className="posts">
+    {isAuthenticated && <div className="posts">
       {postsArray.map((data, index) => (
         <Post key={index} postData={data} />
       ))}
@@ -38,7 +35,6 @@ function Home() {
   </div>
   );
 }
-
 const postsArray = [
   {
     userName: "Tiffany",
