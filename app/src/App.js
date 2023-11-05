@@ -1,9 +1,11 @@
+
 import './App.css';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import About from "./pages/About.js";
 import Home from "./pages/Home.js";
 import Profile from "./pages/Profile.js";
-
+import Login from './components/auth/Login.jsx';
+import Register from './components/auth/Register.jsx';
 
 function App() {
   return (

@@ -2,7 +2,7 @@ import React from 'react';
 import './About.css';
 import Aboutpic from './pfp.png';
 import dance from './dance.gif';
-
+import bonnie from './bonnie.png';
 const About = () => {
   return (
     <div className="about-page">
@@ -26,7 +26,7 @@ const About = () => {
       <p> <strong>Aleenah Alam</strong> - Programmer <br></br> Aleenah is a Junior at Pace University pursuing 
       her BS in computer science. In her free time, she enjoys reading, photography, and spending time outdoors.</p> 
 
-      <img alt="photo of michael" src={Aboutpic} />
+      <img alt="photo of michael" src={bonnie} />
       <p> <strong>Michael Carr</strong> - Programmer </p>
 
       <img alt="photo of lihi" src={Aboutpic} />
