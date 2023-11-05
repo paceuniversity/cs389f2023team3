@@ -1,8 +1,9 @@
 import React from 'react';
 import './About.css';
-import Aboutpic from './pfp.png';
 import dance from './dance.gif';
 import bonnie from './bonnie.png';
+import lihi from './lihi.png';
+
 const About = () => {
   return (
     <div className="about-page">
@@ -29,8 +30,10 @@ const About = () => {
       <img class="img" alt="photo of michael" src={bonnie} />
       <p> <strong>Michael Carr</strong> - Programmer </p>
 
-      <img class="img" alt="photo of lihi" src={Aboutpic} />
-      <p> <strong>Lihi Shamriz</strong> - Programmer </p>
+      <img class="img" alt="photo of lihi" src={lihi} />
+      <p> <strong>Lihi Shamriz</strong> - Programmer 
+      <br></br> Lihi is an exchange student at Pace University, here for just one semester.
+      <br></br>She lives in Manhattan and enjoys exlporing new places and new music.</p>
       <br></br>
 
       <h2>Contact Us</h2>
