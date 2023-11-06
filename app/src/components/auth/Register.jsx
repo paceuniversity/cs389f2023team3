@@ -13,7 +13,7 @@ export const Register = (props) => {
 
     const signUp = (e) => { 
         e.preventDefault();
-        createUserWithEmailAndPassword(exauth, email, pass)
+        createUserWithEmailAndPassword(auth, email, pass)
         .then((userCredential) => {
             console.log(userCredential);
         })
@@ -47,7 +47,7 @@ export const Register = (props) => {
             name="password"
             onChange= {(e) => setPass(e.target.value)}
             ></input>
-                <button type="submit"> Log In</button>
+                <button type="submit"> Sign Up!</button>
             
        </form>
        <button className ="link-btn" onClick={() => props.onFormSwitch('login')}> If you have an account click here </button>
