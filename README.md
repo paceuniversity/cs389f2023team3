@@ -7,6 +7,7 @@
 ## Team members
 
 Aleenah Alam, Michael Carr, Lihi Shamriz
+
 Scrum Master: Aleenah Alam
 
 TOADD picture of the team
