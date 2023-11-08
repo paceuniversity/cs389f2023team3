@@ -24,8 +24,8 @@ const About = () => {
 
       <h2>Meet the Team</h2>
       <img alt="aleenah" src={dance} />
-      <p> <strong>Aleenah Alam</strong> - Programmer <br></br> Aleenah is a Junior at Pace University pursuing 
-      her BS in computer science. In her free time, she enjoys reading, photography, and spending time outdoors.</p> 
+      <p> <strong>Aleenah Alam</strong> - Programmer <br></br> Hello! I am a Junior at Pace University pursuing 
+      my BS in computer science. In my free time, I enjoy reading, photography, and spending time outdoors.</p> 
 
       <img alt="michael" src={bonnie} />
       <p> <strong>Michael Carr</strong> - Hello I am Michael Carr and I'm a Junior at Pace University! I am pursing my B.S. in computer science. Some hobbies of mine inclue playing the bass guitar, playing video games, and listening to music. </p>

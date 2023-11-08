@@ -10,6 +10,11 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   }
   
+  .small-text {
+    font-size: 10px; 
+    margin-top: 0;
+  }
+
   h2 {
     font-size: 24px;
     color: #333;
@@ -40,3 +45,32 @@
   .profile-picture input[type="file"] {
     display: none;
   }  
+
+  .profile-details {
+    border-radius: 25px;
+    border: 2px solid #73AD21;
+    padding: 20px;
+    width: 200px;
+    height: 200px;
+    /*margin: auto;*/
+  }
+
+.edit-button,
+.save-button {
+  color: black; 
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s; 
+
+}
+
+.edit-button:hover,
+.save-button:hover {
+  background-color: rgb(236, 133, 236); 
+}
+
+.text {
+  font-size: 18px;
+  color: rgb(85, 85, 85);
+}
