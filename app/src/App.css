@@ -18,12 +18,12 @@ li {
 
 a {
   text-decoration: none;
-  color: #fff;
+  color: #fff !important;
   transition: color 0.3s;
 }
 
 a:hover {
-  color: #ff6600;
+  color: #ff6600 !important;
 }
 
 .container {
