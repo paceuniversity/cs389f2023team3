@@ -24,14 +24,14 @@ const About = () => {
 
       <h2>Meet the Team</h2>
       <img alt="aleenah" src={dance} />
-      <p> <strong>Aleenah Alam</strong> - Programmer <br></br> Hello! I am a Junior at Pace University pursuing 
+      <p className='text'> <strong>Aleenah Alam</strong> - Programmer <br></br> Hello! I am a Junior at Pace University pursuing 
       my BS in computer science. In my free time, I enjoy reading, photography, and spending time outdoors.</p> 
 
       <img alt="michael" src={bonnie} />
-      <p> <strong>Michael Carr</strong> - Hello I am Michael Carr and I'm a Junior at Pace University! I am pursing my B.S. in computer science. Some hobbies of mine inclue playing the bass guitar, playing video games, and listening to music. </p>
+      <p className='text'>  <strong>Michael Carr</strong> - Hello I am Michael Carr and I'm a Junior at Pace University! I am pursing my B.S. in computer science. Some hobbies of mine inclue playing the bass guitar, playing video games, and listening to music. </p>
 
       <img alt="lihi" src={lihi} />
-      <p> <strong>Lihi Shamriz</strong> - Programmer
+      <p className='text'> <strong>Lihi Shamriz</strong> - Programmer
       <br></br>I'm an exchange student at Pace University, here for just one semester.
       <br></br>I live in Manhattan and enjoy exlporing new places and new music.</p>
       <br></br>

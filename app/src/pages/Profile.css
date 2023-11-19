@@ -1,76 +1,40 @@
-
-.profile-page {
-    font-family: 'Arial', sans-serif;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f5f5f5;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  }
+.gradient-custom-2 {
+  /* fallback for old browsers */
+  background: #fbc2eb;
   
-  .small-text {
-    font-size: 10px; 
-    margin-top: 0;
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgba(251, 194, 235, 1), rgba(166, 193, 238, 1));
+  
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgba(251, 194, 235, 1), rgba(166, 193, 238, 1))
   }
 
-  h2 {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
-  .profile-form {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .profile-picture {
-    margin-right: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .profile-picture img {
-    max-width: 200px;
-    max-height: 200px;
-    border-radius: 50%;
-    border: 2px solid #333;
-    margin-bottom: 10px;
-  }
-  
-  .profile-picture input[type="file"] {
-    display: none;
-  }  
-
-  .profile-details {
-    border-radius: 25px;
-    border: 2px solid #73AD21;
-    padding: 20px;
-    width: 200px;
-    height: 200px;
-    /*margin: auto;*/
-  }
-
-.edit-button,
-.save-button {
-  color: black; 
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s; 
-
+.btn-outline-dark {
+  color: #000 !important;
+  padding: 5px 10px;
+  font-size: 14px;
 }
 
-.edit-button:hover,
-.save-button:hover {
-  background-color: rgb(236, 133, 236); 
+button:hover {
+  background-color: violet !important;
+  transition: 0.5s;
 }
 
-.text {
-  font-size: 18px;
-  color: rgb(85, 85, 85);
+.file-upload {
+  font-size: 14px;
+  padding-top: 30px;
+  color: #fff;
+}
+
+.textbox {
+  margin-left: 40px;
+}
+
+.profile-pic {
+  height: 10px;
+  width: 10px;
+}
+
+a:hover {
+  background-color: yellow;
 }
