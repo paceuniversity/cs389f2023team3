@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './Profile.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import { getAuth, signOut } from 'firebase/auth'; // Import signOut
+import { useHistory } from 'react-router-dom'; // Import useHistory
 const ProfileSection = () => {
   const [editMode, setEditMode] = useState(false);
   const [userData, setUserData] = useState({
@@ -10,6 +11,8 @@ const ProfileSection = () => {
     bio: 'Hi! My name is Andy. I love all things indie rock. I live in NYC and I\'m currently learning how to play the electric guitar.',
     profilePic: 'https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp'
   });
+
+  const history = useHistory();
 
   const toggleEditMode = () => {
     setEditMode(!editMode);
@@ -27,8 +30,17 @@ const ProfileSection = () => {
 
   const saveChanges = () => {
     toggleEditMode();
-    // Add any logic here to handle saving to a server or local storage
   };
+
+  const handleSignOut = () => {
+    const auth = getAuth();
+    signOut(auth).then(() => {
+      history.push("/");
+    }).catch((error) => {
+    });
+  };
+
+
 
   return (
     <section className="h-100 gradient-custom-2">
@@ -45,9 +57,9 @@ const ProfileSection = () => {
                   ) : (
                     <img src={userData.profilePic} alt="Profile" className="img-fluid img-thumbnail mt-4 mb-2" style={{ width: '150px', height: '150px', zIndex: 1 }}/>
                   )}
-                  <button type="button" className="btn-outline-dark" data-mdb-ripple-color="dark" style={{ zIndex: 1 }} onClick={editMode ? saveChanges : toggleEditMode}>
+
                     {editMode ? 'Save Changes' : 'Edit Profile'}
-                  </button>
+   
                 </div>
                 <div className="ms-3" style={{ marginTop: '130px', marginLeft: '20px' }}>
                   {editMode ? (
@@ -77,6 +89,7 @@ const ProfileSection = () => {
                   </div>
                 </div>
                 <div className="d-flex justify-content-between align-items-center mb-4">
+                <button className="btn btn-primary" onClick={handleSignOut}>Sign Out</button>
                   <p className="lead fw-normal mb-0">Current favorites</p>
                   {/* <p className="mb-0">
                     <a href="#!" className="text-muted">
@@ -118,7 +131,8 @@ const ProfileSection = () => {
                       alt="image 1"
                       className="w-100 rounded-3"
                       style = {{width: '250px', height: '250px'}}
-                    />                  
+                    />  
+                    <button type="button" className="btn-outline-dark" data-mdb-ripple-color="dark" style={{ zIndex: 1 }} onClick={editMode ? saveChanges : toggleEditMode}></button>                
                     </div>
                 </div>
               </div>
