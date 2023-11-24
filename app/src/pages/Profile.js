@@ -3,13 +3,14 @@ import './Profile.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { getAuth, signOut } from 'firebase/auth'; // Import signOut
 import { useHistory } from 'react-router-dom'; // Import useHistory
+
 const ProfileSection = () => {
   const [editMode, setEditMode] = useState(false);
   const [userData, setUserData] = useState({
-    name: 'Andy Horwitz',
-    location: 'New York',
-    bio: 'Hi! My name is Andy. I love all things indie rock. I live in NYC and I\'m currently learning how to play the electric guitar.',
-    profilePic: 'https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp'
+    // name: 'Andy Horwitz',
+    // location: 'New York',
+    // bio: 'Hi! My name is Andy. I love all things indie rock. I live in NYC and I\'m currently learning how to play the electric guitar.',
+    profilePic: 'https://i.stack.imgur.com/34AD2.jpg'
   });
 
   const history = useHistory();
@@ -40,8 +41,6 @@ const ProfileSection = () => {
     });
   };
 
-
-
   return (
     <section className="h-100 gradient-custom-2">
       <div className="container py-5 h-100">
@@ -57,15 +56,15 @@ const ProfileSection = () => {
                   ) : (
                     <img src={userData.profilePic} alt="Profile" className="img-fluid img-thumbnail mt-4 mb-2" style={{ width: '150px', height: '150px', zIndex: 1 }}/>
                   )}
-
+                  <button type="button" className="btn-outline-dark" data-mdb-ripple-color="dark" style={{ zIndex: 1 }} onClick={editMode ? saveChanges : toggleEditMode}>
                     {editMode ? 'Save Changes' : 'Edit Profile'}
-   
+                  </button>
                 </div>
                 <div className="ms-3" style={{ marginTop: '130px', marginLeft: '20px' }}>
                   {editMode ? (
                     <>
-                      <input type="text" name="name" value={userData.name} onChange={handleChange} className="textbox form-control mb-2"/>
-                      <input type="text" name="location" value={userData.location} onChange={handleChange} className="textbox form-control"/>
+                      <input type="text" name="name" placeholder="Name" value={userData.name} onChange={handleChange} className="textbox form-control mb-2"/>
+                      <input type="text" name="location" placeholder="City" value={userData.location} onChange={handleChange} className="textbox form-control"/>
                     </>
                   ) : (
                     <>
@@ -82,7 +81,7 @@ const ProfileSection = () => {
                   <p className="lead fw-normal mb-1">Bio</p>
                   <div className="p-4" style={{ backgroundColor: '#f8f9fa' }}>
                     {editMode ? (
-                      <textarea name="bio" value={userData.bio} onChange={handleChange} className="form-control"/>
+                      <textarea name="bio" placeholder="Tell us about yourself!" value={userData.bio} onChange={handleChange} className="form-control"/>
                     ) : (
                       <p className="font-italic mb-1">{userData.bio}</p>
                     )}
@@ -104,7 +103,7 @@ const ProfileSection = () => {
                       src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbxAVFZuPdIEQ874znLgqrncPeU93F8rkE27RvM3MZIw&s"
                       alt="image 1"
                       className="w-100 rounded-3"
-                      style = {{width: '250px', height: '250px'}}
+                      style = {{width: '100%', height: 'auto'}}
                     /> </a>                 
                     </div>
                   <div className="col mb-2">
@@ -112,7 +111,7 @@ const ProfileSection = () => {
                       src="https://upload.wikimedia.org/wikipedia/en/5/51/Igor_-_Tyler%2C_the_Creator.jpg"
                       alt="image 1"
                       className="w-100 rounded-3"
-                      style = {{width: '250px', height: '250px'}}
+                      style = {{width: '100%', height: 'auto'}}
                     />                  
                     </div>
                 </div>
@@ -122,7 +121,7 @@ const ProfileSection = () => {
                       src="https://upload.wikimedia.org/wikipedia/en/6/60/Bad_Bunny_-_Un_Verano_Sin_Ti.png"
                       alt="image 1"
                       className="w-100 rounded-3"
-                      style = {{width: '250px', height: '250px'}}
+                      style = {{width: '100%', height: 'auto'}}
                     />                  
                     </div>
                   <div className="col">
@@ -130,10 +129,9 @@ const ProfileSection = () => {
                       src="https://upload.wikimedia.org/wikipedia/en/5/5e/Mac_Miller_-_Swimming.png"
                       alt="image 1"
                       className="w-100 rounded-3"
-                      style = {{width: '250px', height: '250px'}}
+                      style = {{width: '100%', height: 'auto'}}
                     />  
-                    <button type="button" className="btn-outline-dark" data-mdb-ripple-color="dark" style={{ zIndex: 1 }} onClick={editMode ? saveChanges : toggleEditMode}></button>                
-                    </div>
+                  </div>
                 </div>
               </div>
             </div>
