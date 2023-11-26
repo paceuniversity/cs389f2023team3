@@ -6,10 +6,17 @@ const clientId = '70d068513e2146d2bc810f3640c3d952';
 const clientSecret = 'e3541689ffb04c74b0e4c43c9d1adc2e';
 const tokenEndpoint = 'https://accounts.spotify.com/api/token';
 
-const AlbumSearch = ({ onAlbumSelected }) => {
+const AlbumSearch = ({ onAlbumSelected, externalKey }) => {
   const [accessToken, setAccessToken] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
+  const [key, setKey] = useState('');
+
+  useEffect(() => {
+    setKey(externalKey)
+    setSearchTerm('');
+    setSearchResults([]);
+  }, [externalKey]);
 
   useEffect(() => {
     const getAccessToken = async () => {
@@ -62,6 +69,7 @@ const AlbumSearch = ({ onAlbumSelected }) => {
   return (
     <Box sx={{ paddingTop: '16px' }}>
       <Autocomplete
+        key={key}
         options={searchResults}
         getOptionLabel={(album) => album.name}
         renderInput={(params) => (

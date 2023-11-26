@@ -12,6 +12,7 @@ function Home() {
   const [currentForm, setCurrentForm] = useState('login');
   const isAuthenticated = true;
   const [selectedAlbum, setSelectedAlbum] = useState('');
+  const [key, setKey] = useState('');
   const [newPostData, setNewPostData] = useState({
     userName: '',
     date: '',
@@ -101,6 +102,7 @@ function Home() {
     });
 
     setSelectedAlbum('');
+    setKey(new Date());
   };
 
   return (
@@ -121,7 +123,7 @@ function Home() {
       <Card>
         <CardHeader
           avatar={
-            <Avatar aria-label="Lihi"></Avatar>
+            <Avatar aria-label="Tiffany"></Avatar>
           }
           title="Tiffany"
           subheader="November 26, 2023"
@@ -136,7 +138,7 @@ function Home() {
             value={newPostData.description}
             onChange={handleInputChange('description')}
           />
-          <AlbumSearch onAlbumSelected={setSelectedAlbum}></AlbumSearch>
+          <AlbumSearch onAlbumSelected={setSelectedAlbum} externalKey={key}></AlbumSearch>
         </Box>
         <Button type="submit" variant="contained" color="primary" sx={{ margin: '16px' }}>
           Post
