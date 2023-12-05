@@ -50,7 +50,7 @@ TuneTalk is a music-focused app that brings together music enthusiasts of variou
 ### Sprint 3
 
 * [Sprint planning](https://docs.google.com/spreadsheets/d/1odoaUqXyTLhiZFRJtVE4P46vtHmQhSL_ao6-MEn74K4/edit#gid=192982407)
-* [Scrums]()
+* [Scrums](https://docs.google.com/document/d/1cLGNUUmfeKAdazvOq9l5od9DwYYqTqeOTvSx9PL79I8/edit?usp=sharing)
 * [Sprint demo video]()
 * [Sprint retrospective]()
 
