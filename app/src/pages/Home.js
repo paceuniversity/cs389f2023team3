@@ -16,6 +16,7 @@ function Home() {
   const [newPostData, setNewPostData] = useState({
     userName: '',
     date: '',
+    albumId: '',
     description: '',
     title: '',
     artist: '',
@@ -82,6 +83,7 @@ function Home() {
 
   const onSubmit = (event) => {
     if (selectedAlbum) {
+      newPostData.albumId = selectedAlbum.id;
       newPostData.title = selectedAlbum.name;
       newPostData.artist = selectedAlbum.artists[0].name;
       newPostData.coverUrl = selectedAlbum.images[0].url

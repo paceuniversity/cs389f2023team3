@@ -36,6 +36,11 @@ export function Post({ postData }) {
 function MediaPost({ postData }) {
   const theme = useTheme();
 
+  const handleButtonClick = () => {
+    const urlToOpen = `https://open.spotify.com/album/${postData.albumId}`;
+    window.open(urlToOpen, '_blank');
+  };
+
   return (
     <Card sx={{ display: 'flex', height: "200px" }} style={{ boxShadow: "0 -2px 2px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.2)" }}>
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
@@ -48,7 +53,7 @@ function MediaPost({ postData }) {
           </Typography>
         </CardContent>
         <Box sx={{ display: 'flex', alignItems: 'center'}}>
-          <IconButton aria-label="play/pause">
+          <IconButton aria-label="play" onClick={handleButtonClick}>
             <PlayArrow sx={{ height: 38, width: 38 }} />
           </IconButton>
         </Box>
