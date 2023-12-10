@@ -1,17 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Profile.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { getAuth, signOut } from 'firebase/auth'; // Import signOut
+import { useAuth, upload } from '../firebase';
 import { useHistory } from 'react-router-dom'; // Import useHistory
 
 const ProfileSection = () => {
   const [editMode, setEditMode] = useState(false);
   const [userData, setUserData] = useState({
-    // name: 'Andy Horwitz',
-    // location: 'New York',
-    // bio: 'Hi! My name is Andy. I love all things indie rock. I live in NYC and I\'m currently learning how to play the electric guitar.',
-    profilePic: 'https://i.stack.imgur.com/34AD2.jpg'
   });
+
+  const currentUser = useAuth();
+  const [photo, setPhoto] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  const [photoURL, setPhotoURL] = useState("https://t3.ftcdn.net/jpg/00/64/67/80/360_F_64678017_zUpiZFjj04cnLri7oADnyMH0XBYyQghG.jpg"); 
 
   const history = useHistory();
 
@@ -19,17 +22,24 @@ const ProfileSection = () => {
     setEditMode(!editMode);
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e) => { 
     setUserData({ ...userData, [e.target.name]: e.target.value });
   };
 
-  const handleImageChange = (e) => {
-    if (e.target.files && e.target.files[0]) {
-      setUserData({ ...userData, profilePic: URL.createObjectURL(e.target.files[0]) });
+  function handleImageChange(e) { //handleChange
+    if (e.target.files[0]) {
+      setPhoto(e.target.files[0])
     }
-  };
+  }
 
-  const saveChanges = () => {
+  useEffect(() => {
+    if (currentUser && currentUser.photoURL) {
+      setPhotoURL(currentUser.photoURL);
+    }
+  }, [currentUser])
+  
+  function saveChanges() { //handleClick
+    upload(photo, currentUser, setLoading);
     toggleEditMode();
   };
 
@@ -51,10 +61,10 @@ const ProfileSection = () => {
                 <div className="ms-4 mt-5 d-flex flex-column" style={{ width: '140px', marginLeft: '20px' }}>
                   {editMode ? (
                     <label className='file-upload'>
-                      <input type="file" onChange={handleImageChange} className="mb-2"/>
+                      <input disable={loading || !photo} type="file" onChange={handleImageChange} className="mb-2"/>
                     </label>
                   ) : (
-                    <img src={userData.profilePic} alt="Profile" className="img-fluid img-thumbnail mt-4 mb-2" style={{ width: '150px', height: '150px', zIndex: 1 }}/>
+                    <img src={photoURL} alt="Profile" className="img-fluid img-thumbnail mt-4 mb-2" style={{ width: '150px', height: '150px', zIndex: 1 }}/>
                   )}
                   <button type="button" className="btn-outline-dark" data-mdb-ripple-color="dark" style={{ zIndex: 1 }} onClick={editMode ? saveChanges : toggleEditMode}>
                     {editMode ? 'Save Changes' : 'Edit Profile'}
@@ -101,7 +111,7 @@ const ProfileSection = () => {
                   <div className="col mb-2">
                   <a href="#!" className='currentfav'><img
                       src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbxAVFZuPdIEQ874znLgqrncPeU93F8rkE27RvM3MZIw&s"
-                      alt="image 1"
+                      alt="favorite album 1"
                       className="w-100 rounded-3"
                       style = {{width: '100%', height: 'auto'}}
                     /> </a>                 
@@ -109,7 +119,7 @@ const ProfileSection = () => {
                   <div className="col mb-2">
                   <img
                       src="https://upload.wikimedia.org/wikipedia/en/5/51/Igor_-_Tyler%2C_the_Creator.jpg"
-                      alt="image 1"
+                      alt="favorite album 2"
                       className="w-100 rounded-3"
                       style = {{width: '100%', height: 'auto'}}
                     />                  
@@ -119,7 +129,7 @@ const ProfileSection = () => {
                   <div className="col">
                   <img
                       src="https://upload.wikimedia.org/wikipedia/en/6/60/Bad_Bunny_-_Un_Verano_Sin_Ti.png"
-                      alt="image 1"
+                      alt="favorite album 3"
                       className="w-100 rounded-3"
                       style = {{width: '100%', height: 'auto'}}
                     />                  
@@ -127,7 +137,7 @@ const ProfileSection = () => {
                   <div className="col">
                   <img
                       src="https://upload.wikimedia.org/wikipedia/en/5/5e/Mac_Miller_-_Swimming.png"
-                      alt="image 1"
+                      alt="favorite album 4"
                       className="w-100 rounded-3"
                       style = {{width: '100%', height: 'auto'}}
                     />  
