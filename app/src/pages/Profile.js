@@ -17,8 +17,8 @@ const ProfileSection = () => {
   const [photo, setPhoto] = useState(null);
   const [loading, setLoading] = useState(false);
   // Set a default profile picture URL
-  const defaultProfilePicUrl = "https://media.istockphoto.com/id/1223671392/vector/default-profile-picture-avatar-photo-placeholder-vector-illustration.jpg?s=612x612&w=0&k=20&c=s0aTdmT5aU6b8ot7VKm11DeID6NctRCpB755rA1BIP0=";
-  const [photoURL, setPhotoURL] = useState(defaultProfilePicUrl);
+ // const defaultProfilePicUrl = "https://media.istockphoto.com/id/1223671392/vector/default-profile-picture-avatar-photo-placeholder-vector-illustration.jpg?s=612x612&w=0&k=20&c=s0aTdmT5aU6b8ot7VKm11DeID6NctRCpB755rA1BIP0=";
+  const [photoURL, setPhotoURL] = useState("https://t3.ftcdn.net/jpg/00/64/67/80/360_F_64678017_zUpiZFjj04cnLri7oADnyMH0XBYyQghG.jpg"); 
   const history = useHistory();
 
   useEffect(() => {
@@ -32,7 +32,7 @@ const ProfileSection = () => {
           if (userDocSnap.exists()) {
             const data = userDocSnap.data();
             setUserData(data);
-            setPhotoURL(data.photoURL || defaultProfilePicUrl);
+            setPhotoURL(data.photoURL);
           } else {
             // User document not found, could consider creating it here
             console.log("No user document found!");
