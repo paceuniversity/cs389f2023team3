@@ -39,7 +39,7 @@ const About = () => {
       <h2>Contact Us</h2>
       <p>
         If you have any questions or would like to get in touch with us, please
-        don't hesitate to contact us at _____.
+        don't hesitate to contact us <a class="link" href="https://github.com/paceuniversity/cs389f2023team3">here</a>.
       </p>
     </div>
   );

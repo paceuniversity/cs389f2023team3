@@ -29,29 +29,27 @@ function App() {
               <Link to="/">Login</Link>
             </li>
           )}
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-          {isLoggedIn && (
-          <li>
-            <Link to="/profile">Profile</Link>
-          </li>
-
-          )}
-      
           {isLoggedIn && (
             <li>
               <Link to="/home">Home</Link>
             </li>
           )}
+          {isLoggedIn && (
+          <li>
+            <Link to="/profile">Profile</Link>
+          </li>
+          )}
+          <li>
+            <Link to="/about">About</Link>
+          </li>
         </ul>
       </nav>
       <div className="container">
         <Switch>
           <Route path="/" exact component={LoginPage} />
-          <Route path="/about" exact component={About} />
-          <Route path="/profile" exact component={Profile} />
           <Route path="/home" exact component={Home} />
+          <Route path="/profile" exact component={Profile} />
+          <Route path="/about" exact component={About} />
         </Switch>
       </div>
     </Router>

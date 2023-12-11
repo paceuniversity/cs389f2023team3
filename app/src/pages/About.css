@@ -41,4 +41,8 @@
   strong {
     font-weight: bold;
   }
+
+  .link {
+    color: #007bff !important;
+  }
   

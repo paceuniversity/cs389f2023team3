@@ -1,19 +1,14 @@
 import React, { useState, useEffect } from "react";
 import "./Home.css";
 
-import { Login } from '../components/auth/Login';
-import { Register } from '../components/auth/Register';
 import { Post } from '../pages/Post';
 import { Card, CardHeader, Avatar, TextField, Button, Box } from "@mui/material";
-import { AuthDetails } from '../components/auth/AuthDetails.jsx';
-import AlbumSearch from "./AlbumSearch";
 import { useAuth, getUser, getPosts, addPost } from '../firebase';
+import AlbumSearch from "./AlbumSearch";
 
 function Home() {
   const currentUser = useAuth();
   const [currentUserDetails, setCurrentUserDetails] = useState({}); 
-  const [currentForm, setCurrentForm] = useState('login');
-  const isAuthenticated = true;
   const [selectedAlbum, setSelectedAlbum] = useState('');
   const [key, setKey] = useState('');
   const [newPostData, setNewPostData] = useState({
@@ -41,10 +36,6 @@ function Home() {
       fetchPosts();
     }
   }, [currentUser]);
-
-  const toggleForm = (formName) => { 
-    setCurrentForm(formName);
-  }
 
   const handleInputChange = (field) => (event) => {
     setNewPostData({
@@ -89,18 +80,6 @@ function Home() {
 
   return (
   <div className="home-page">
-   
-    {!isAuthenticated && <div className="login center">
-      <h1>Welcome to TuneTalk!</h1>
-
-      Login or Register below!
-    
-      { 
-       currentForm === "login" ? <Login onFormSwitch={toggleForm} /> : <Register onFormSwitch={toggleForm}  /> 
-      }
-     
-    </div>}
-    
     <form onSubmit={handleSubmit}>
       <Card>
         <CardHeader
@@ -128,11 +107,11 @@ function Home() {
       </Card>
     </form>
 
-    {isAuthenticated && <div className="posts">
+    <div className="posts">
       {postsArray.map((data, index) => (
         <Post key={index} postData={data} />
       ))}
-    </div>}
+    </div>
   </div>
   );
 }
