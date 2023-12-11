@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, onAuthStateChanged, updateProfile } from "firebase/auth";
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
-import { getFirestore, doc, setDoc, addDoc, collection, getDocs, getDoc } from "firebase/firestore";
+import { getFirestore, doc, setDoc, addDoc, collection, getDocs, getDoc, query, orderBy } from "firebase/firestore";
 import { useState, useEffect } from "react";
 
 // Firebase configuration
@@ -73,7 +73,7 @@ export async function createUserOrUpdateProfile(uid, updatedData) {
 // Function to get posts from Firestore
 export async function getPosts() {
   const postsCollection = collection(db, 'posts');
-  const querySnapshot = await getDocs(postsCollection);
+  const querySnapshot = await getDocs(query(postsCollection, orderBy('date', 'desc')));
 
   const postsArray = [];
   querySnapshot.forEach((doc) => {

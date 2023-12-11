@@ -42,12 +42,21 @@ function MediaPost({ postData }) {
 
   return (
     <Card sx={{ display: 'flex', height: "200px" }} style={{ boxShadow: "0 -2px 2px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.2)" }}>
-      <Box sx={{ display: 'flex', flexDirection: 'column', width: "50%" }}>
-        <CardContent sx={{ flex: '1 0 auto' }}>
-          <Typography component="div" variant="h7">
+      <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
+        <CardContent sx={{ flex: '1 0 auto', display: 'flex', flexDirection: 'column', paddingBottom: 0 }}>
+          <Typography
+            component="div"
+            variant="h7"
+            sx={{
+              display: '-webkit-box',
+              WebkitBoxOrient: 'vertical',
+              overflow: 'hidden',
+              WebkitLineClamp: 4,
+            }}
+          >
             {postData.title}
           </Typography>
-          <Typography variant="subtitle3" color="text.secondary" component="div">
+          <Typography variant="subtitle3" color="text.secondary" component="div" sx={{ marginTop: 'auto' }}>
             {postData.artist}
           </Typography>
         </CardContent>
