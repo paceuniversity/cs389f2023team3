@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, onAuthStateChanged, updateProfile } from "firebase/auth";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { getFirestore, doc, setDoc, updateDoc } from "firebase/firestore";
+import { getFirestore, doc, setDoc, updateDoc, addDoc, collection, getDocs, getDoc } from "firebase/firestore";
 import { useState, useEffect } from "react";
 
 // Firebase configuration
@@ -35,6 +35,16 @@ export function useAuth() {
   return currentUser;
 }
 
+// Function to get user details
+export async function getUser(uid) {
+  const userDocRef = doc(getFirestore(), "users", uid);
+  const userDocSnap = await getDoc(userDocRef);
+  if (userDocSnap.exists()) {
+    const data = userDocSnap.data();
+    return data;
+  }
+}
+
 // Function to upload files to Firebase Storage
 export async function upload(file, currentUser, setLoading) {
   const fileRef = ref(storage, currentUser.uid + '.png');
@@ -58,5 +68,29 @@ export async function createUserOrUpdateProfile(uid, updatedData) {
     console.log("Profile created/updated successfully!");
   } catch (error) {
     console.error("Error creating/updating profile: ", error);
+  }
+}
+
+// Function to get posts from Firestore
+export async function getPosts() {
+  const postsCollection = collection(db, 'posts');
+  const querySnapshot = await getDocs(postsCollection);
+
+  const postsArray = [];
+  querySnapshot.forEach((doc) => {
+    postsArray.push({ id: doc.id, ...doc.data() });
+  });
+
+  return postsArray;
+}
+
+// Function to add a new post to Firestore
+export async function addPost(postData) {
+  const postsCollection = collection(db, 'posts');
+  try {
+    const docRef = await addDoc(postsCollection, postData);
+    console.log('Post added with ID: ', docRef.id);
+  } catch (error) {
+    console.error('Error adding post: ', error);
   }
 }

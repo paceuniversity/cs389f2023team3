@@ -1,19 +1,23 @@
+import React, { useState, useEffect } from "react";
 import "./Home.css";
+
 import { Login } from '../components/auth/Login';
 import { Register } from '../components/auth/Register';
 import { Post } from '../pages/Post';
 import { Card, CardHeader, Avatar, TextField, Button, Box } from "@mui/material";
-import AlbumSearch from "./AlbumSearch";
-
-import React, { useState } from "react";
 import { AuthDetails } from '../components/auth/AuthDetails.jsx';
+import AlbumSearch from "./AlbumSearch";
+import { useAuth, getUser, getPosts, addPost } from '../firebase';
 
 function Home() {
+  const currentUser = useAuth();
+  const [currentUserDetails, setCurrentUserDetails] = useState({}); 
   const [currentForm, setCurrentForm] = useState('login');
   const isAuthenticated = true;
   const [selectedAlbum, setSelectedAlbum] = useState('');
   const [key, setKey] = useState('');
   const [newPostData, setNewPostData] = useState({
+    userId: '',
     userName: '',
     date: '',
     albumId: '',
@@ -22,48 +26,21 @@ function Home() {
     artist: '',
     coverUrl: '',
   });
-  const [postsArray, setPostsArray] = useState([
-    {
-      userName: "Rosi",
-      date: "November 5, 2023",
-      description: "Just love it!!",
-      title: "1989",
-      artist: "Taylor Swift",
-      coverUrl: "https://upload.wikimedia.org/wikipedia/en/f/f6/Taylor_Swift_-_1989.png"
-    },
-    {
-      userName: "Jason",
-      date: "November 4, 2023",
-      description: "Rap legend",
-      title: "The Marshall Mathers LP",
-      artist: "Eminem",
-      coverUrl: "https://upload.wikimedia.org/wikipedia/en/a/ae/The_Marshall_Mathers_LP.jpg"
-    },
-    {
-      userName: "Nate",
-      date: "November 3, 2023",
-      description: "Classic rock vibes!",
-      title: "Sticky Fingers",
-      artist: "The Rolling Stones",
-      coverUrl: "https://amateurphotographer.com/wp-content/uploads/sites/7/2021/12/010.jpg"
-    },
-    {
-      userName: "Alex",
-      date: "November 2, 2023",
-      description: "My favorite of all times.",
-      title: "Abbey Road",
-      artist: "The Beatles",
-      coverUrl: "https://upload.wikimedia.org/wikipedia/en/4/42/Beatles_-_Abbey_Road.jpg"
-    },
-    {
-      userName: "Tiffany",
-      date: "November 1, 2023",
-      description: "Check out this album!",
-      title: "Live From Space",
-      artist: "Mac Miller",
-      coverUrl: "https://upload.wikimedia.org/wikipedia/en/5/5f/Mac_Miller_Live_from_Space.jpg"
+  const [postsArray, setPostsArray] = useState([]);
+
+  useEffect(() => {
+    if (currentUser) {
+      const fetchPosts = async () => {
+        const user = await getUser(currentUser.uid);
+        setCurrentUserDetails(user);
+  
+        const fetchedPosts = await getPosts();
+        setPostsArray(fetchedPosts);
+      };
+  
+      fetchPosts();
     }
-  ]);
+  }, [currentUser]);
 
   const toggleForm = (formName) => { 
     setCurrentForm(formName);
@@ -76,12 +53,12 @@ function Home() {
     });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    onSubmit(newPostData);
+    await onSubmit(newPostData);
   };
 
-  const onSubmit = (event) => {
+  const onSubmit = async (event) => {
     if (selectedAlbum) {
       newPostData.albumId = selectedAlbum.id;
       newPostData.title = selectedAlbum.name;
@@ -89,12 +66,15 @@ function Home() {
       newPostData.coverUrl = selectedAlbum.images[0].url
     }
 
-    newPostData.userName = "Tiffany";
-    newPostData.date = "November 26, 2023";
+    newPostData.userId = currentUser.uid;
+    newPostData.userName = currentUserDetails.name;
+    newPostData.date = new Date();
 
     setPostsArray((prevPosts) => [newPostData, ...prevPosts]);
+    await addPost(newPostData);
 
     setNewPostData({
+      userId: '',
       userName: '',
       date: '',
       description: '',
@@ -125,10 +105,10 @@ function Home() {
       <Card>
         <CardHeader
           avatar={
-            <Avatar aria-label="Tiffany"></Avatar>
+            <Avatar aria-label={currentUserDetails.name}></Avatar>
           }
-          title="Tiffany"
-          subheader="November 26, 2023"
+          title={currentUserDetails.name}
+          subheader={new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
         />
         <Box sx={{ paddingLeft: '16px', paddingRight: '16px' }}>
           <TextField
