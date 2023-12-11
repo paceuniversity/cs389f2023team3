@@ -21,7 +21,7 @@ initializeApp(firebaseConfig);
 // Initialize services
 export const auth = getAuth(); // Export auth
 const storage = getStorage();
-const db = getFirestore();
+export const db = getFirestore();
 
 // Custom hook to use auth
 export function useAuth() {

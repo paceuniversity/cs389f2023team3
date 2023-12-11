@@ -104,7 +104,7 @@ const ProfileSection = () => {
                 <div className="ms-4 mt-5 d-flex flex-column" style={{ width: '140px', marginLeft: '20px' }}>
                   {editMode ? (
                     <label className='file-upload'>
-                      <input disable={loading || !photo} type="file" onChange={handleImageChange} className="mb-2" />
+                      <input type="file" onChange={handleImageChange} className="mb-2" />
                     </label>
                   ) : (
                     <img src={photoURL} alt="Profile" className="img-fluid img-thumbnail mt-4 mb-2" style={{ width: '150px', height: '150px', zIndex: 1 }} />
