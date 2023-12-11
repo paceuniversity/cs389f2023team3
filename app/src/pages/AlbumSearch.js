@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Box, TextField, ListItem, ListItemAvatar, Avatar, ListItemText, Autocomplete } from '@mui/material';
 import axios from 'axios';
+import { Box, TextField, ListItem, ListItemAvatar, Avatar, ListItemText, Autocomplete } from '@mui/material';
 
 const clientId = '70d068513e2146d2bc810f3640c3d952';
 const clientSecret = 'e3541689ffb04c74b0e4c43c9d1adc2e';
@@ -10,10 +10,8 @@ const AlbumSearch = ({ onAlbumSelected, externalKey }) => {
   const [accessToken, setAccessToken] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
-  const [key, setKey] = useState('');
 
   useEffect(() => {
-    setKey(externalKey)
     setSearchTerm('');
     setSearchResults([]);
   }, [externalKey]);
@@ -43,25 +41,27 @@ const AlbumSearch = ({ onAlbumSelected, externalKey }) => {
 
   useEffect(() => {
     const searchAlbumByName = async () => {
-      try {
-        const response = await axios.get(
-          `https://api.spotify.com/v1/search?q=${searchTerm}&type=album`,
-          {
-            headers: {
-              Authorization: `Bearer ${accessToken}`,
-            },
-          }
-        );
-
-        setSearchResults(response.data.albums.items);
-      } catch (error) {
-        console.error('Error searching for album by name:', error);
+      if (searchTerm) {
+        try {
+          const response = await axios.get(
+            `https://api.spotify.com/v1/search?q=${searchTerm}&type=album`,
+            {
+              headers: {
+                Authorization: `Bearer ${accessToken}`,
+              },
+            }
+          );
+  
+          setSearchResults(response.data.albums.items);
+        } catch (error) {
+          console.error('Error searching for album by name:', error);
+        }
       }
     };
 
     const searchTimer = setTimeout(() => {
       searchAlbumByName();
-    }, 1000);
+    }, 500);
 
     return () => clearTimeout(searchTimer);
   }, [searchTerm, accessToken]);
@@ -69,7 +69,6 @@ const AlbumSearch = ({ onAlbumSelected, externalKey }) => {
   return (
     <Box sx={{ paddingTop: '16px' }}>
       <Autocomplete
-        key={key}
         options={searchResults}
         getOptionLabel={(album) => album.name}
         renderInput={(params) => (
@@ -83,7 +82,7 @@ const AlbumSearch = ({ onAlbumSelected, externalKey }) => {
           />
         )}
         renderOption={(props, album) => (
-          <li {...props}>
+          <div {...props} key={album.id}>
             <ListItem>
               <ListItemAvatar>
                 <Avatar alt={album.name} src={album.images[0].url} />
@@ -93,7 +92,7 @@ const AlbumSearch = ({ onAlbumSelected, externalKey }) => {
                 secondary={`Artist: ${album.artists[0].name}`}
               />
             </ListItem>
-          </li>
+          </div>
         )}
         onChange={(event, newValue) => {
           onAlbumSelected(newValue);
