@@ -8,6 +8,8 @@
 
 Aleenah Alam, Michael Carr, Lihi Shamriz
 
+Scrum Master: Aleenah Alam
+
 TOADD picture of the team
 
 ## App description
@@ -35,13 +37,13 @@ TuneTalk is a music-focused app that brings together music enthusiasts of variou
 
 * [Sprint planning](https://docs.google.com/spreadsheets/d/1odoaUqXyTLhiZFRJtVE4P46vtHmQhSL_ao6-MEn74K4/edit#gid=1056044682)
 * [Scrums](https://docs.google.com/document/d/1I_VTNswvvRipo5BTDWJ4m7gOAcNPKg0Gj4oOOYvntds/edit?usp=sharing)
-* [Sprint demo video]()
-* [Sprint retrospective]()
+* [Sprint demo video](https://drive.google.com/file/d/1iAg1cfbuWd8tT_jIoyNNAfLnqPJpa1Xv/view?usp=sharing) 
+* [Sprint retrospective](https://docs.google.com/document/d/156Pa15wgJLuJo0r0U3_gPyET0Yq7Mdz_7v-axdmk3y0/edit?usp=sharing)
 
 ### Sprint 2
 
-* [Sprint planning]()
-* [Scrums]()
+* [Sprint planning](https://docs.google.com/spreadsheets/d/1odoaUqXyTLhiZFRJtVE4P46vtHmQhSL_ao6-MEn74K4/edit#gid=1385532964)
+* [Scrums](https://docs.google.com/document/d/1L_bfK-5WEnpD1EiT16F5_3oShVPcBc8qQz0_pVJokCQ/edit?usp=sharing)
 * [Sprint demo video]()
 * [Sprint retrospective]()
 
@@ -54,7 +56,7 @@ TuneTalk is a music-focused app that brings together music enthusiasts of variou
 
 ## Tools & APIs
 
-* Spotify API
+<img src="https://github.com/paceuniversity/cs389f2023team3/assets/28511638/5d7f3e6a-4e1f-4f87-b638-44ad0b27e27f" width="150" height="100">
 
 ## Final delivery
 

@@ -1,8 +1,9 @@
 import React from 'react';
 import './About.css';
-import Aboutpic from './pfp.png';
-import dance from './dance.gif';
-import bonnie from './bonnie.png';
+import dance from '../resources/dance.gif';
+import bonnie from '../resources/bonnie.png';
+import lihi from '../resources/lihi.png';
+
 const About = () => {
   return (
     <div className="about-page">
@@ -22,15 +23,17 @@ const About = () => {
       <br></br>
 
       <h2>Meet the Team</h2>
-      <img alt="photo of aleenah" src={dance} />
-      <p> <strong>Aleenah Alam</strong> - Programmer <br></br> Aleenah is a Junior at Pace University pursuing 
-      her BS in computer science. In her free time, she enjoys reading, photography, and spending time outdoors.</p> 
+      <img alt="aleenah" src={dance} />
+      <p className='text'> <strong>Aleenah Alam</strong> - Programmer <br></br> Hello! I am a Junior at Pace University pursuing 
+      my BS in computer science. In my free time, I enjoy reading, photography, and spending time outdoors.</p> 
 
-      <img alt="photo of michael" src={bonnie} />
-      <p> <strong>Michael Carr</strong> - Hello I am Michael Carr and I'm a Junior at Pace University! I am pursing my B.S. in computer science. Some hobbies of mine inclue playing the bass guitar, playing video games, and listening to music. </p>
+      <img alt="michael" src={bonnie} />
+      <p className='text'>  <strong>Michael Carr</strong> - Hello I am Michael Carr and I'm a Junior at Pace University! I am pursing my B.S. in computer science. Some hobbies of mine inclue playing the bass guitar, playing video games, and listening to music. </p>
 
-      <img alt="photo of lihi" src={Aboutpic} />
-      <p> <strong>Lihi Shamriz</strong> - Programmer </p>
+      <img alt="lihi" src={lihi} />
+      <p className='text'> <strong>Lihi Shamriz</strong> - Programmer
+      <br></br>I'm an exchange student at Pace University, here for just one semester.
+      <br></br>I live in Manhattan and enjoy exlporing new places and new music.</p>
       <br></br>
 
       <h2>Contact Us</h2>

@@ -26,13 +26,13 @@
     margin-bottom: 10px;
   }
   
-  p {
+  .text {
     font-size: 18px;
     color: #555;
     line-height: 1.6;
   }
   
-  img {
+  .about-page > img {
     max-width: 100px;
     border-radius: 50%;
     margin: 10px;
