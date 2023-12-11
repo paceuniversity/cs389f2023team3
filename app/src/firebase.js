@@ -24,6 +24,13 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
+<<<<<<< Updated upstream
+=======
+// Initialize services
+export const auth = getAuth(); // Export auth
+const storage = getStorage();
+export const db = getFirestore();
+>>>>>>> Stashed changes
 
 
 // Initialize Firebase
