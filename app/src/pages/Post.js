@@ -1,9 +1,10 @@
 import * as React from 'react';
-import { useTheme } from '@mui/material/styles';
 import { Card, CardHeader, CardMedia, CardContent, CardActions, Avatar, IconButton, Typography, Box } from '@mui/material';
 import { Favorite, Comment, PlayArrow } from '@mui/icons-material';
 
 export function Post({ postData }) {
+  const date = postData.date instanceof Date ? postData.date : postData.date.toDate();
+
   return (
     <Card sx={{ maxWidth: 240 }}>
       <CardHeader
@@ -13,7 +14,7 @@ export function Post({ postData }) {
           </Avatar>
         }
         title={postData.userName}
-        subheader={new Date(postData.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+        subheader={date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
       />
       <MediaPost postData={postData} />
       <CardContent>
@@ -34,8 +35,6 @@ export function Post({ postData }) {
 }
 
 function MediaPost({ postData }) {
-  const theme = useTheme();
-
   const handleButtonClick = () => {
     const urlToOpen = `https://open.spotify.com/album/${postData.albumId}`;
     window.open(urlToOpen, '_blank');
@@ -43,7 +42,7 @@ function MediaPost({ postData }) {
 
   return (
     <Card sx={{ display: 'flex', height: "200px" }} style={{ boxShadow: "0 -2px 2px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.2)" }}>
-      <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+      <Box sx={{ display: 'flex', flexDirection: 'column', width: "50%" }}>
         <CardContent sx={{ flex: '1 0 auto' }}>
           <Typography component="div" variant="h7">
             {postData.title}
