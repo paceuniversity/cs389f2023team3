@@ -45,14 +45,14 @@ TuneTalk is a music-focused app that brings together music enthusiasts of variou
 * [Sprint planning](https://docs.google.com/spreadsheets/d/1odoaUqXyTLhiZFRJtVE4P46vtHmQhSL_ao6-MEn74K4/edit#gid=1385532964)
 * [Scrums](https://docs.google.com/document/d/1L_bfK-5WEnpD1EiT16F5_3oShVPcBc8qQz0_pVJokCQ/edit?usp=sharing)
 * [Sprint demo video](https://drive.google.com/file/d/10dEm6w_AWl4FI5mYydTUSfUU8a6csgy7/view?usp=sharing)
-* [Sprint retrospective](https://docs.google.com/document/d/10tsJu98AeuZai69kotKO3EJL2ucpORBDDGb7kNKRJTI/edit)
+* [Sprint retrospective](https://docs.google.com/document/d/1MUL-tvuTcQ2EHg53-KAU6Wt4kOPfuuUjKJpboFCW58g/edit?usp=sharing)
 
 ### Sprint 3
 
 * [Sprint planning](https://docs.google.com/spreadsheets/d/1odoaUqXyTLhiZFRJtVE4P46vtHmQhSL_ao6-MEn74K4/edit#gid=192982407)
 * [Scrums](https://docs.google.com/document/d/1cLGNUUmfeKAdazvOq9l5od9DwYYqTqeOTvSx9PL79I8/edit?usp=sharing)
 * [Sprint demo video]()
-* [Sprint retrospective]()
+* [Sprint retrospective](https://docs.google.com/document/d/10tsJu98AeuZai69kotKO3EJL2ucpORBDDGb7kNKRJTI/edit?usp=sharing)
 
 ## Tools & APIs
 
