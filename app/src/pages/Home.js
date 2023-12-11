@@ -7,6 +7,7 @@ import AlbumSearch from "./AlbumSearch";
 
 import React, { useState } from "react";
 import { AuthDetails } from '../components/auth/AuthDetails.jsx';
+import { addPost } from '../firebase';
 
 function Home() {
   const [currentForm, setCurrentForm] = useState('login');
@@ -76,12 +77,12 @@ function Home() {
     });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    onSubmit(newPostData);
+    await onSubmit(newPostData);
   };
 
-  const onSubmit = (event) => {
+  const onSubmit = async (event) => {
     if (selectedAlbum) {
       newPostData.albumId = selectedAlbum.id;
       newPostData.title = selectedAlbum.name;
@@ -93,6 +94,7 @@ function Home() {
     newPostData.date = "November 26, 2023";
 
     setPostsArray((prevPosts) => [newPostData, ...prevPosts]);
+    await addPost(newPostData);
 
     setNewPostData({
       userName: '',

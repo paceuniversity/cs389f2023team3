@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, onAuthStateChanged, updateProfile } from "firebase/auth";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { getFirestore, doc, setDoc, updateDoc } from "firebase/firestore";
+import { getFirestore, doc, setDoc, updateDoc, addDoc, collection } from "firebase/firestore";
 import { useState, useEffect } from "react";
 
 // Firebase configuration
@@ -58,5 +58,16 @@ export async function createUserOrUpdateProfile(uid, updatedData) {
     console.log("Profile created/updated successfully!");
   } catch (error) {
     console.error("Error creating/updating profile: ", error);
+  }
+}
+
+// Function to add a new post to Firestore
+export async function addPost(postData) {
+  const postsCollection = collection(db, 'posts');
+  try {
+    const docRef = await addDoc(postsCollection, postData);
+    console.log('Post added with ID: ', docRef.id);
+  } catch (error) {
+    console.error('Error adding post: ', error);
   }
 }
