@@ -13,7 +13,7 @@ export function Post({ postData }) {
           </Avatar>
         }
         title={postData.userName}
-        subheader={postData.date}
+        subheader={new Date(postData.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
       />
       <MediaPost postData={postData} />
       <CardContent>

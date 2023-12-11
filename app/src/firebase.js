@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, onAuthStateChanged, updateProfile } from "firebase/auth";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { getFirestore, doc, setDoc, updateDoc, addDoc, collection, getDocs } from "firebase/firestore";
+import { getFirestore, doc, setDoc, updateDoc, addDoc, collection, getDocs, getDoc } from "firebase/firestore";
 import { useState, useEffect } from "react";
 
 // Firebase configuration
@@ -33,6 +33,16 @@ export function useAuth() {
   }, []);
 
   return currentUser;
+}
+
+// Function to get user details
+export async function getUser(uid) {
+  const userDocRef = doc(getFirestore(), "users", uid);
+  const userDocSnap = await getDoc(userDocRef);
+  if (userDocSnap.exists()) {
+    const data = userDocSnap.data();
+    return data;
+  }
 }
 
 // Function to upload files to Firebase Storage

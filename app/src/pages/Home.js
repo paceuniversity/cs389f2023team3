@@ -7,14 +7,17 @@ import { Post } from '../pages/Post';
 import { Card, CardHeader, Avatar, TextField, Button, Box } from "@mui/material";
 import { AuthDetails } from '../components/auth/AuthDetails.jsx';
 import AlbumSearch from "./AlbumSearch";
-import { getPosts, addPost } from '../firebase';
+import { useAuth, getUser, getPosts, addPost } from '../firebase';
 
 function Home() {
+  const currentUser = useAuth();
+  const [currentUserDetails, setCurrentUserDetails] = useState({}); 
   const [currentForm, setCurrentForm] = useState('login');
   const isAuthenticated = true;
   const [selectedAlbum, setSelectedAlbum] = useState('');
   const [key, setKey] = useState('');
   const [newPostData, setNewPostData] = useState({
+    userId: '',
     userName: '',
     date: '',
     albumId: '',
@@ -26,13 +29,18 @@ function Home() {
   const [postsArray, setPostsArray] = useState([]);
 
   useEffect(() => {
-    const fetchPosts = async () => {
-      const fetchedPosts = await getPosts();
-      setPostsArray(fetchedPosts);
-    };
-
-    fetchPosts();
-  }, []);
+    if (currentUser) {
+      const fetchPosts = async () => {
+        const user = await getUser(currentUser.uid);
+        setCurrentUserDetails(user);
+  
+        const fetchedPosts = await getPosts();
+        setPostsArray(fetchedPosts);
+      };
+  
+      fetchPosts();
+    }
+  }, [currentUser]);
 
   const toggleForm = (formName) => { 
     setCurrentForm(formName);
@@ -58,13 +66,15 @@ function Home() {
       newPostData.coverUrl = selectedAlbum.images[0].url
     }
 
-    newPostData.userName = "Tiffany";
-    newPostData.date = "November 26, 2023";
+    newPostData.userId = currentUser.uid;
+    newPostData.userName = currentUserDetails.name;
+    newPostData.date = new Date();
 
     setPostsArray((prevPosts) => [newPostData, ...prevPosts]);
     await addPost(newPostData);
 
     setNewPostData({
+      userId: '',
       userName: '',
       date: '',
       description: '',
@@ -95,10 +105,10 @@ function Home() {
       <Card>
         <CardHeader
           avatar={
-            <Avatar aria-label="Tiffany"></Avatar>
+            <Avatar aria-label={currentUserDetails.name}></Avatar>
           }
-          title="Tiffany"
-          subheader="November 26, 2023"
+          title={currentUserDetails.name}
+          subheader={new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
         />
         <Box sx={{ paddingLeft: '16px', paddingRight: '16px' }}>
           <TextField
