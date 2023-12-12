@@ -4,7 +4,7 @@ import About from "./pages/About.js";
 import Home from "./pages/Home.js";
 import Profile from "./pages/Profile.js";
 import LoginPage from "./pages/LoginPage.js";
-import Friends from './pages/Friends.js';
+import { Friends } from './pages/Friends.js';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import React, { useState, useEffect } from 'react';
 

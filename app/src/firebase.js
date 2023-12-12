@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, onAuthStateChanged, updateProfile } from "firebase/auth";
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
-import { getFirestore, doc, setDoc, addDoc, collection, getDocs, getDoc, query, orderBy } from "firebase/firestore";
+import { getFirestore, doc, setDoc, addDoc, collection, getDocs, getDoc, query, orderBy, updateDoc, arrayUnion, where } from "firebase/firestore";
 import { useState, useEffect } from "react";
 
 // Firebase configuration
@@ -71,16 +71,35 @@ export async function createUserOrUpdateProfile(uid, updatedData) {
 }
 
 // Function to get posts from Firestore
-export async function getPosts() {
-  const postsCollection = collection(db, 'posts');
-  const querySnapshot = await getDocs(query(postsCollection, orderBy('date', 'desc')));
+export async function getPosts(currentUserId) {
+  try {
+    // Fetch the user's document to get the list of friends
+    const userDocRef = doc(db, "users", currentUserId);
+    const userDocSnapshot = await getDoc(userDocRef);
 
-  const postsArray = [];
-  querySnapshot.forEach((doc) => {
-    postsArray.push({ id: doc.id, ...doc.data() });
-  });
+    if (!userDocSnapshot.exists()) {
+      console.error("User document not found.");
+      return [];
+    }
 
-  return postsArray;
+    const userData = userDocSnapshot.data();
+
+    // Fetch posts from friends
+    const postsCollection = collection(db, 'posts');
+    const querySnapshot = await getDocs(
+      query(postsCollection, where('userName', 'in', [...userData.friends, userData.name]), orderBy('date', 'desc'))
+    );
+
+    const friendPostsArray = [];
+    querySnapshot.forEach((doc) => {
+      friendPostsArray.push({ id: doc.id, ...doc.data() });
+    });
+
+    return friendPostsArray;
+  } catch (error) {
+    console.error("Error fetching friend posts: ", error);
+    return [];
+  }
 }
 
 // Function to add a new post to Firestore
@@ -91,5 +110,40 @@ export async function addPost(postData) {
     console.log('Post added with ID: ', docRef.id);
   } catch (error) {
     console.error('Error adding post: ', error);
+  }
+}
+
+// Function to add a friend by name
+export async function addFriend(currentUserId, friendUserName) {
+  try {
+    const currentUserDocRef = doc(getFirestore(), "users", currentUserId);
+    const friendUserDocRef = await getUserDocRefByName(friendUserName);
+
+    if (!currentUserDocRef || !friendUserDocRef) {
+      console.log("User not found.");
+      return;
+    }
+
+    await updateDoc(currentUserDocRef, {
+      friends: arrayUnion(friendUserName),
+    });
+
+    await updateDoc(friendUserDocRef, {
+      friends: arrayUnion((await getDoc(currentUserDocRef)).data().name),
+    });
+  } catch (error) {
+    console.error("Error adding friend: ", error);
+  }
+}
+
+// Helper function to get user document reference by name
+async function getUserDocRefByName(name) {
+  const userQuery = query(collection(db, "users"), where("name", "==", name));
+  const userSnapshot = await getDocs(userQuery);
+
+  if (!userSnapshot.empty) {
+    return doc(db, "users", userSnapshot.docs[0].id);
+  } else {
+    return null;
   }
 }

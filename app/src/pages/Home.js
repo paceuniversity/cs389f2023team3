@@ -29,7 +29,7 @@ function Home() {
         const user = await getUser(currentUser.uid);
         setCurrentUserDetails(user);
   
-        const fetchedPosts = await getPosts();
+        const fetchedPosts = await getPosts(currentUser.uid);
         setPostsArray(fetchedPosts);
       };
   
