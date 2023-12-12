@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Home.css";
 import { useAuth } from '../firebase';
-import { Card, CardHeader, Avatar, Typography, Divider } from "@mui/material";
+import { Card, CardHeader, Avatar, Divider } from "@mui/material";
 import Search from "../components/auth/Search";
 import { doc, getFirestore, getDoc } from "firebase/firestore";
 
