@@ -1,42 +1,71 @@
 import React, { useState, useEffect } from "react";
 import "./Home.css";
-import { FriendController } from "../components/auth/FriendController";
-
-import { Post } from '../pages/Post';
-import { Card, CardHeader, Avatar, TextField, Button, Box } from "@mui/material";
-import { useAuth, getUser, getPosts, addPost } from '../firebase';
-import AlbumSearch from "./AlbumSearch";
-import { AuthDetails } from '../components/auth/AuthDetails.jsx';
-import Search  from "../components/auth/Search";
-import { doc, updateDoc, deleteDoc } from "firebase/firestore";
+import { useAuth } from '../firebase';
+import { Card, CardHeader, Avatar, Typography, Divider } from "@mui/material";
+import Search from "../components/auth/Search";
+import { doc, getFirestore, getDoc } from "firebase/firestore";
 
 function Friends() {
   const currentUser = useAuth();
-  const [currentUserDetails, setCurrentUserDetails] = useState({}); 
-  const [selectedAlbum, setSelectedAlbum] = useState('');
-  const [key, setKey] = useState('');
+  const [friends, setFriends] = useState([]);
   const isAuthenticated = !!currentUser;
 
+  useEffect(() => {
+    const fetchFriends = async () => {
+      try {
+        const userDocRef = doc(getFirestore(), "users", currentUser.uid);
+        const userDocSnapshot = await getDoc(userDocRef);
 
-    const handleSearchSuccess = (userData) => {
+        if (userDocSnapshot.exists()) {
+          const userData = userDocSnapshot.data();
+          const friendsData = userData.friends || [];
+          setFriends(friendsData);
+        }
+      } catch (error) {
+        console.error("Error fetching friends: ", error);
+      }
+    };
 
-        console.log("Search Successful: ", userData);
-      };
-    
-      const toggleForm = (formName) => {
-        console.log("Form toggled to: ", formName);
-      };
+    if (isAuthenticated) {
+      fetchFriends();
+    }
+  }, [currentUser, isAuthenticated]);
+
+  function onAddFriend(friendUsername) {
+    setFriends([...friends, friendUsername]);
+  }
 
   return (
-  <div className="home-page">
-            {isAuthenticated && (
+    <div className="home-page">
+      {isAuthenticated && (
         <div className="search-bar-container">
-         <h3> <Search onSearchSuccess={handleSearchSuccess} onFormSwitch={toggleForm} /> </h3> 
+          <h3>
+            <Search friends={friends} onAddFriend={onAddFriend}/>
+          </h3>
+          <div>
+            <Divider style={{ marginTop: "16px" }}/>
+            {friends.map((friendName) => (
+              <FriendCard key={friendName} friendName={friendName} />
+            ))}
+          </div>
         </div>
-    )}
-
+      )}
     </div>
   );
 }
 
-export default Friends;
+function FriendCard({ friendName }) {
+  return (
+    <Card sx={{ maxWidth: 240, marginTop: 2 }}>
+      <CardHeader
+        avatar={<Avatar>{friendName.charAt(0)}</Avatar>}
+        title={friendName}
+      />
+    </Card>
+  );
+}
+
+export {
+  Friends,
+  FriendCard
+}
