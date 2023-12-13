@@ -1,7 +1,6 @@
 import React, {useState} from "react";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../firebase";
-import { firebase } from "firebase/app"
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth, createUserOrUpdateProfile } from "../../firebase";
 
 
 export const Register = (props) => { 
@@ -15,7 +14,10 @@ export const Register = (props) => {
         e.preventDefault();
         createUserWithEmailAndPassword(auth, email, pass)
         .then((userCredential) => {
-            console.log(userCredential);
+            createUserOrUpdateProfile(userCredential.user.uid, {name: name, location: '', bio: '', friends: []})
+            .then(() => {
+                window.location.href = '/home';
+            });
         })
         .catch((error) => {
             console.log(error);

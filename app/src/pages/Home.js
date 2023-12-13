@@ -84,7 +84,7 @@ function Home() {
       <Card>
         <CardHeader
           avatar={
-            <Avatar aria-label={currentUserDetails.name}></Avatar>
+            <Avatar aria-label={currentUserDetails.name} src={currentUserDetails.photoURL}></Avatar>
           }
           title={currentUserDetails.name}
           subheader={new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
