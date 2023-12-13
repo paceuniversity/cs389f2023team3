@@ -1,7 +1,7 @@
 import React from 'react';
 import './About.css';
 import aleenahPfp from '../resources/aleenah.jpg';
-import bonnie from '../resources/bonnie.png';
+import michaelPfp from '../resources/michael.png';
 import lihi from '../resources/lihi.png';
 
 const About = () => {
@@ -27,7 +27,7 @@ const About = () => {
       <p className='text'> <strong>Aleenah Alam</strong> - Programmer <br></br> Hello! I am a Junior at Pace University pursuing 
       my BS in computer science. In my free time, I enjoy reading, photography, and spending time outdoors.</p> 
 
-      <img alt="michael" src={bonnie} />
+      <img alt="michael" src={michaelPfp} />
       <p className='text'>  <strong>Michael Carr</strong> - Hello I am Michael Carr and I'm a Junior at Pace University! I am pursing my B.S. in computer science. Some hobbies of mine inclue playing the bass guitar, playing video games, and listening to music. </p>
 
       <img alt="lihi" src={lihi} />
