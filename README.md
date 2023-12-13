@@ -59,7 +59,7 @@ TuneTalk is a music-focused app that brings together music enthusiasts of variou
 <img src="https://github.com/paceuniversity/cs389f2023team3/assets/28511638/5d7f3e6a-4e1f-4f87-b638-44ad0b27e27f" width="150" height="100">
 
 ## Poster
-<img width="500" src="https://github.com/paceuniversity/cs389f2023team3/assets/47402830/4ba8e02f-22fd-43b8-9da8-6f091cf37921">
+<img width="500" src="https://github.com/paceuniversity/cs389f2023team3/assets/47402830/6912e624-3ddc-4d9e-a003-5742bf28e28e">
 
 ## Final delivery
 * [Final presentation]()
