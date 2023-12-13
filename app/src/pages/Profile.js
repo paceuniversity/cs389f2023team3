@@ -32,7 +32,9 @@ const ProfileSection = () => {
           if (userDocSnap.exists()) {
             const data = userDocSnap.data();
             setUserData(data);
-            setPhotoURL(data.photoURL);
+            if (data.photoURL) {
+              setPhotoURL(data.photoURL);
+            }
           } else {
             // User document not found, could consider creating it here
             console.log("No user document found!");
@@ -70,6 +72,7 @@ const ProfileSection = () => {
       // Update local state if photoURL is successfully obtained
       if (photoURL) {
         setUserData((prevData) => ({ ...prevData, photoURL }));
+        setPhotoURL(photoURL);
       }
     }
 
@@ -191,6 +194,7 @@ const ProfileSection = () => {
           </div>
         </div>
       </div>
+      {loading && <div></div>}
     </section>
   );
 };

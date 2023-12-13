@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, onAuthStateChanged, updateProfile } from "firebase/auth";
-import { getStorage, ref, getDownloadURL } from "firebase/storage";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getStorage, ref, getDownloadURL, uploadBytes } from "firebase/storage";
 import { getFirestore, doc, setDoc, addDoc, collection, getDocs, getDoc, query, orderBy, updateDoc, arrayUnion, where } from "firebase/firestore";
 import { useState, useEffect } from "react";
 
@@ -49,10 +49,12 @@ export async function getUser(uid) {
 export async function upload(file, currentUser, setLoading) {
   const fileRef = ref(storage, currentUser.uid + '.png');
 
-  setLoading(true); 
+  setLoading(true);
+  await uploadBytes(fileRef, file);
   const photoURL = await getDownloadURL(fileRef);
 
-  updateProfile(currentUser, { photoURL });
+  const userDocRef = doc(db, "users", currentUser.uid);
+  await updateDoc(userDocRef, { photoURL });
   
   setLoading(false);
   alert("Uploaded file!");
