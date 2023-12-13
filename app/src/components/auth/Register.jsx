@@ -15,9 +15,7 @@ export const Register = (props) => {
         createUserWithEmailAndPassword(auth, email, pass)
         .then((userCredential) => {
             createUserOrUpdateProfile(userCredential.user.uid, {name: name, location: '', bio: '', friends: []})
-            .then(() => {
-                window.location.href = '/home';
-            });
+            .then(() => {});
         })
         .catch((error) => {
             console.log(error);

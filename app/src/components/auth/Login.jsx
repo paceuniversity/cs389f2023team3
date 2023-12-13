@@ -12,7 +12,6 @@ export const Login = (props) => {
         signInWithEmailAndPassword(auth, email, password)
         .then(() => {
             props.onLoginSuccess(); 
-            window.location.href = '/home';
         })
         .catch((error) => {
             console.log(error);
