@@ -1,6 +1,6 @@
 import React from 'react';
 import './About.css';
-import dance from '../resources/dance.gif';
+import aleenahPfp from '../resources/aleenah.jpg';
 import bonnie from '../resources/bonnie.png';
 import lihi from '../resources/lihi.png';
 
@@ -23,7 +23,7 @@ const About = () => {
       <br></br>
 
       <h2>Meet the Team</h2>
-      <img alt="aleenah" src={dance} />
+      <img alt="aleenah" src={aleenahPfp} />
       <p className='text'> <strong>Aleenah Alam</strong> - Programmer <br></br> Hello! I am a Junior at Pace University pursuing 
       my BS in computer science. In my free time, I enjoy reading, photography, and spending time outdoors.</p> 
 
