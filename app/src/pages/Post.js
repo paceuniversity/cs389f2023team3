@@ -6,7 +6,7 @@ export function Post({ postData }) {
   const date = postData.date instanceof Date ? postData.date : postData.date.toDate();
 
   return (
-    <Card sx={{ maxWidth: 240 }}>
+    <Card sx={{ maxWidth: 240, display: 'flex', flexDirection: 'column' }}>
       <CardHeader
         avatar={
           <Avatar aria-label={postData.userName}>
@@ -17,7 +17,7 @@ export function Post({ postData }) {
         subheader={date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
       />
       <MediaPost postData={postData} />
-      <CardContent>
+      <CardContent sx={{ flexGrow: 1 }}>
         <Typography variant="body2" color="text.secondary">
           {postData.description}
         </Typography>

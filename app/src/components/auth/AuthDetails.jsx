@@ -9,7 +9,7 @@ const AuthDetails = () => {
 
 
     useEffect(() => {
-        const listen = onAuthStateChanged(auth, (user) => { 
+        onAuthStateChanged(auth, (user) => { 
             if (user) { 
                 setAuthUser(user);
             } else { 

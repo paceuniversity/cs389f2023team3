@@ -2,7 +2,6 @@ import "./Home.css";
 import { useHistory } from "react-router-dom";
 import { Login } from '../components/auth/Login';
 import { Register } from '../components/auth/Register';
-import AuthDetails from '../components/auth/AuthDetails';
 
 import React, { useState, useEffect } from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
