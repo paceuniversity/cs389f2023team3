@@ -6,11 +6,13 @@
 
 ## Team members
 
+<img height="100" src="https://github.com/paceuniversity/cs389f2023team3/assets/28511638/74641924-4507-4bce-b2b6-1cdcc063dbd3">
+<img height="100" src="https://github.com/paceuniversity/cs389f2023team3/assets/28511638/3ab8f057-f253-4566-84a7-8461a8bdd09a">
+<img height="100" src="https://github.com/paceuniversity/cs389f2023team3/assets/28511638/54a0088a-9a75-4d42-9ed8-0f6d574de1ed">
+
 Aleenah Alam, Michael Carr, Lihi Shamriz
 
 Scrum Master: Aleenah Alam
-
-TOADD picture of the team
 
 ## App description
 
@@ -57,10 +59,11 @@ TuneTalk is a music-focused app that brings together music enthusiasts of variou
 ## Tools & APIs
 
 <img src="https://github.com/paceuniversity/cs389f2023team3/assets/28511638/5d7f3e6a-4e1f-4f87-b638-44ad0b27e27f" width="150" height="100">
+<img src="https://github.com/paceuniversity/cs389f2023team3/assets/28511638/4d821238-4fc4-4c21-8c7e-5d82de4d438e" width="200" height="100">
 
 ## Poster
-<img width="500" src="https://github.com/paceuniversity/cs389f2023team3/assets/47402830/6912e624-3ddc-4d9e-a003-5742bf28e28e">
+<img width="400" src="https://github.com/paceuniversity/cs389f2023team3/assets/28511638/4593573a-ea20-4c8a-8b7a-9bdbe4aa951b">
 
 ## Final delivery
-* [Final presentation]()
+* [Final presentation](https://docs.google.com/presentation/d/1AcZxUXRbauR0FUKrhvHjEUSxXoz_n-6DfQW01rVg16k/edit?usp=sharing)
 * [Process description]()
