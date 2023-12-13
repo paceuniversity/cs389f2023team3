@@ -2,7 +2,7 @@ import React from 'react';
 import './About.css';
 import aleenahPfp from '../resources/aleenah.jpg';
 import michaelPfp from '../resources/michael.png';
-import lihi from '../resources/lihi.png';
+import lihi from '../resources/lihi.jpeg';
 
 const About = () => {
   return (
