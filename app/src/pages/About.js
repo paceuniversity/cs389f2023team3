@@ -28,7 +28,7 @@ const About = () => {
       my BS in computer science. In my free time, I enjoy reading, photography, and spending time outdoors.</p> 
 
       <img alt="michael" src={michaelPfp} />
-      <p className='text'>  <strong>Michael Carr</strong> - Hello I am Michael Carr and I'm a Junior at Pace University! I am pursing my B.S. in computer science. Some hobbies of mine inclue playing the bass guitar, playing video games, and listening to music. </p>
+      <p className='text'>  <strong>Michael Carr</strong> - Programmer <br></br> Hello I am Michael Carr and I'm a Junior at Pace University! I am pursuing a B.S. in computer science and some hobbies of mine include playing the bass guitar, playing video games, and listening to music. </p>
 
       <img alt="lihi" src={lihi} />
       <p className='text'> <strong>Lihi Shamriz</strong> - Programmer
